@@ -1,6 +1,7 @@
 {
-  "name": "Store Register 9.6",
-  "short_name": "Store Register",
+  "id": "/Raccoon/",
+  "name": "THE MONARCH",
+  "short_name": "MONARCH",
   "description": "Inventory, Planning and Store Operations",
   "start_url": "./",
   "scope": "./",
@@ -8,6 +9,11 @@
   "background_color": "#F3F5F7",
   "theme_color": "#0B2A52",
   "orientation": "portrait",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "icon-192.png",
