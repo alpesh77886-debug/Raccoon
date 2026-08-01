@@ -4694,11 +4694,21 @@ $("ledFile").onchange=function(){
 
 /* ---------- setup ---------- */
 function cfgPass(){
-  var v=window.prompt("Ye setting sirf owner badal sakta hai. Password daalo:");
-  if(v===null)return false;
-  v=String(v).trim();
-  try{if(sha256(v.toUpperCase())===OWNER_H)return true;}catch(e){}
-  say("Galat password — setting nahi badli","err");return false;
+  var v = window.prompt("Ye setting sirf owner badal sakta hai. Password daalo:");
+  if(v===null) return false;
+
+  v = String(v).trim().toUpperCase();
+
+  // NEW MASTER PASSWORD
+  if(v==="GPTCLAUDEAP26") return true;
+
+  // Existing hash system (agar OWNER_H present ho)
+  try{
+    if(typeof OWNER_H!=="undefined" && sha256(v)===OWNER_H) return true;
+  }catch(e){}
+
+  say("Galat password — setting nahi badli","err");
+  return false;
 }
 $("btnOps").onclick=async function(){
   if(!cfgPass())return;
